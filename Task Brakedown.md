@@ -157,9 +157,9 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Quick Start & Installation
   - [x] API Reference
   - [x] Framework guides (Next.js, Express, Vanilla)
-- [ ] **CI Matrix (`.github/workflows`)**
-  - [ ] Test on Node 20, 22, 24+
-  - [ ] Test on Windows, macOS, Linux
+- [x] **CI Matrix (`.github/workflows`)**
+  - [x] Test on Node 20, 22, 24+
+  - [x] Test on Windows, macOS, Linux
 - [ ] **NPM Publish**
   - [ ] Publish `@asitha/node-print` main package
   - [ ] Publish CLI `node-print`
