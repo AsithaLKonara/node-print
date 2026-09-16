@@ -153,10 +153,10 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Validate specific use cases: duplicate requests, printer offline, printer reconnect, queue retries, 58/80mm formats, QR/barcode scanning, cash drawer.
 
 ## Phase 12: Public Release
-- [ ] **Documentation (`docs/` & `README.md`)**
-  - [ ] Quick Start & Installation
-  - [ ] API Reference
-  - [ ] Framework guides (Next.js, Express, Vanilla)
+- [x] **Documentation (`docs/` & `README.md`)**
+  - [x] Quick Start & Installation
+  - [x] API Reference
+  - [x] Framework guides (Next.js, Express, Vanilla)
 - [ ] **CI Matrix (`.github/workflows`)**
   - [ ] Test on Node 20, 22, 24+
   - [ ] Test on Windows, macOS, Linux
