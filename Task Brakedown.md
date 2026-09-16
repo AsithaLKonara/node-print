@@ -45,26 +45,26 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Create `docs/api-v1.md` covering the initial client-facing API design
 
 ## Phase 1: Printer Discovery
-- [ ] **Bridge Server Initialization (`apps/bridge`)**
-  - [ ] Setup HTTP server listening on `127.0.0.1` by default
-  - [ ] Implement `GET /health` endpoint
-- [ ] **OS Printer Integration**
-  - [ ] Query native OS for installed printers
-  - [ ] Map OS printer objects to unified `Printer` model
-- [ ] **API Endpoints**
-  - [ ] Implement `GET /printers` returning the list of available printers
-- [ ] **Basic CLI (`node-print`)**
-  - [ ] Setup CLI entry point
-  - [ ] Implement `node-print printers` command
+- [x] **Bridge Server Initialization (`apps/bridge`)**
+  - [x] Setup HTTP server listening on `127.0.0.1` by default
+  - [x] Implement `GET /health` endpoint
+- [x] **OS Printer Integration**
+  - [x] Query native OS for installed printers
+  - [x] Map OS printer objects to unified `Printer` model
+- [x] **API Endpoints**
+  - [x] Implement `GET /printers` returning the list of available printers
+- [x] **Basic CLI (`node-print`)**
+  - [x] Setup CLI entry point
+  - [x] Implement `node-print printers` command
 
 ## Phase 2: Raw Printing (Hardware Milestone)
-- [ ] **Print Endpoint**
-  - [ ] Implement `POST /print`
-  - [ ] Handle `type: "raw"` parsing
-- [ ] **Hardware Communication**
-  - [ ] Stream/Send raw bytes to physical printer via OS spooler/USB/Network
-- [ ] **Validation Test**
-  - [ ] Verify test print on a physical thermal printer
+- [x] **Print Endpoint**
+  - [x] Implement `POST /print`
+  - [x] Handle `type: "raw"` parsing
+- [x] **Hardware Communication**
+  - [x] Stream/Send raw bytes to physical printer via OS spooler/USB/Network
+- [x] **Validation Test**
+  - [x] Verify test print on a physical thermal printer
 
 ## Phase 3: ESC/POS Builder
 - [ ] **ESC/POS Engine (`packages/escpos`)**
