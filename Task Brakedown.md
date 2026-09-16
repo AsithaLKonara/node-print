@@ -127,9 +127,9 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] `node-print routes`: List configured routing rules
 
 ## Phase 9: Cash Drawer Support (Bonus)
-- [ ] **API Endpoint**
-  - [ ] Implement `printer.cashDrawer.open()` API command
-  - [ ] Send ESC/POS kick-drawer command to configured printer
+- [x] **API Endpoint**
+  - [x] Implement `printer.cashDrawer.open()` API command
+  - [x] Send ESC/POS kick-drawer command to configured printer
 
 ## Phase 10: OS Installers
 - [ ] **Windows**

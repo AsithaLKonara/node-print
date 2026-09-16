@@ -5,6 +5,7 @@ import { printRawData } from './printJob';
 import { jobManager } from './JobManager';
 import { GetPrintersResponse, PrintActionResponse } from '@asitha/protocol';
 import { htmlToEscPos } from '@asitha/html';
+import { EscPosBuilder } from '@asitha/escpos';
 import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
 
@@ -156,6 +157,52 @@ app.post('/print', async (req, res) => {
       version: 1,
       requestId: req.headers['x-request-id'] as string || Date.now().toString(),
       error: { code: 'PRINT_FAILED', message: error.message }
+    });
+  }
+});
+
+app.post('/cash-drawer', async (req, res) => {
+  try {
+    const { printer, route, pin = 2 } = req.body;
+    
+    let targetPrinter = printer;
+    if (route) {
+      targetPrinter = routes.get(route);
+      if (!targetPrinter) {
+        return res.status(404).json({
+          version: 1,
+          requestId: req.headers['x-request-id'] || Date.now().toString(),
+          error: { code: 'ROUTE_NOT_FOUND', message: `Route '${route}' is not mapped to any printer.` }
+        });
+      }
+    }
+
+    if (!targetPrinter) {
+      return res.status(400).json({
+        version: 1,
+        requestId: req.headers['x-request-id'] || Date.now().toString(),
+        error: { code: 'INVALID_REQUEST', message: 'printer name or route is required' }
+      });
+    }
+
+    const builder = new EscPosBuilder();
+    builder.cashDrawer(pin as 2 | 5);
+    const job = jobManager.enqueue(targetPrinter, builder.build());
+    
+    const response: PrintActionResponse = {
+      version: 1,
+      requestId: req.headers['x-request-id'] as string || Date.now().toString(),
+      data: {
+        jobId: job.id,
+        status: job.status
+      }
+    };
+    return res.json(response);
+  } catch (error: any) {
+    res.status(500).json({
+      version: 1,
+      requestId: req.headers['x-request-id'] as string || Date.now().toString(),
+      error: { code: 'DRAWER_KICK_FAILED', message: error.message }
     });
   }
 });

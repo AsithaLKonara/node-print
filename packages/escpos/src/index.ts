@@ -57,6 +57,14 @@ export class EscPosBuilder {
     return this;
   }
 
+  cashDrawer(pin: 2 | 5 = 2) {
+    // ESC p m t1 t2
+    // m = 0 (pin 2), 1 (pin 5)
+    const m = pin === 2 ? 0x00 : 0x01;
+    this.buffer.push(Buffer.from([0x1b, 0x70, m, 0x19, 0xfa]));
+    return this;
+  }
+
   barcode(data: string, type: 'UPCA' | 'UPCE' | 'EAN13' | 'EAN8' | 'CODE39' | 'ITF' | 'CODABAR' | 'CODE93' | 'CODE128' = 'CODE128') {
     const map: Record<string, number> = { UPCA: 65, UPCE: 66, EAN13: 67, EAN8: 68, CODE39: 69, ITF: 70, CODABAR: 71, CODE93: 72, CODE128: 73 };
     const m = map[type];

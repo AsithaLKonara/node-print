@@ -110,6 +110,16 @@ export class NodePrintClient {
     }
   };
 
+  public cashDrawer = {
+    open: async (options: { printer?: string, route?: string, pin?: 2 | 5 }): Promise<string> => {
+      const res = await this.request<PrintActionResponse>('/cash-drawer', {
+        method: 'POST',
+        body: JSON.stringify(options)
+      });
+      return res.data?.jobId as string;
+    }
+  };
+
   public async print(req: PrintRequest): Promise<string> {
     const res = await this.request<PrintActionResponse>('/print', {
       method: 'POST',
