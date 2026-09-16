@@ -1,7 +1,10 @@
 {
-  "name": "@asitha/bridge",
+  "name": "@asitha/node-print",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "files": [
+    "dist"
+  ],
   "bin": "dist/cli.js",
   "scripts": {
     "build": "tsc",

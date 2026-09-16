@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { NodePrintClient } from '@asitha/client';
+import { NodePrintClient } from '@asitha/node-print-client';
 import { EscPosBuilder } from '@asitha/escpos';
 
 const PRODUCTS = [

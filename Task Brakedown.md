@@ -160,6 +160,6 @@ This document provides a comprehensive task breakdown for the `node-print` proje
 - [x] **CI Matrix (`.github/workflows`)**
   - [x] Test on Node 20, 22, 24+
   - [x] Test on Windows, macOS, Linux
-- [ ] **NPM Publish**
-  - [ ] Publish `@asitha/node-print` main package
-  - [ ] Publish CLI `node-print`
+- [x] **NPM Publish**
+  - [x] Publish `@asitha/node-print` main package
+  - [x] Publish CLI `node-print`
