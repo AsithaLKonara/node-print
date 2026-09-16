@@ -88,16 +88,16 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Implement endpoints to query job statuses (`GET /jobs/:id`)
 
 ## Phase 5: Browser SDK & Security
-- [ ] **Security Mechanisms (`apps/bridge`)**
-  - [ ] Enforce localhost binding (`127.0.0.1`)
-  - [ ] Implement access token validation
-  - [ ] Implement strict CORS / Origin validation based on config
-- [ ] **Client SDK (`packages/client`)**
-  - [ ] Create `NodePrintClient` class handling initialization
-  - [ ] Add `.connect()`, `.printers.list()`, `.print()`
-- [ ] **Real-time Events (WebSocket)**
-  - [ ] Implement WebSocket server in the bridge
-  - [ ] Implement WebSocket client in SDK for real-time events (`job.completed`, `job.failed`, `printer.offline`, `printer.online`)
+- [x] **Security Mechanisms (`apps/bridge`)**
+  - [x] Enforce localhost binding (`127.0.0.1`)
+  - [x] Implement access token validation
+  - [x] Implement strict CORS / Origin validation based on config
+- [x] **Client SDK (`packages/client`)**
+  - [x] Create `NodePrintClient` class handling initialization
+  - [x] Add `.connect()`, `.printers.list()`, `.print()`
+- [x] **Real-time Events (WebSocket)**
+  - [x] Implement WebSocket server in the bridge
+  - [x] Implement WebSocket client in SDK for real-time events (`job.completed`, `job.failed`, `printer.offline`, `printer.online`)
 
 ## Phase 6: Next.js POS Demo
 - [ ] **App Development (`apps/demo`)**

@@ -7,6 +7,10 @@
     "build": "tsc",
     "dev": "tsc --watch"
   },
+  "dependencies": {
+    "@asitha/types": "workspace:*",
+    "@asitha/protocol": "workspace:*"
+  },
   "devDependencies": {
     "typescript": "^5.4.0"
   }

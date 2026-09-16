@@ -4,16 +4,35 @@ import { getPrinters } from './printers';
 import { printRawData } from './printJob';
 import { jobManager } from './JobManager';
 import { GetPrintersResponse, PrintActionResponse } from '@asitha/protocol';
+import { createServer } from 'http';
+import { WebSocketServer } from 'ws';
 
 const app = express();
-const PORT = process.env.PORT || 18181;
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 18181;
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN || ''; 
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '*'; 
 
-app.use(cors());
+app.use(cors({
+  origin: ALLOWED_ORIGIN === '*' ? '*' : ALLOWED_ORIGIN.split(',')
+}));
 app.use(express.json());
 
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
+const authMiddleware = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (!ACCESS_TOKEN) return next();
+  const authHeader = req.headers.authorization;
+  if (!authHeader || authHeader !== `Bearer ${ACCESS_TOKEN}`) {
+    return res.status(401).json({
+      version: 1,
+      requestId: req.headers['x-request-id'] || Date.now().toString(),
+      error: { code: 'UNAUTHORIZED', message: 'Invalid or missing access token' }
+    });
+  }
+  next();
+};
+
+app.use(authMiddleware);
+
+app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 app.get('/printers', async (req, res) => {
   try {
@@ -28,10 +47,7 @@ app.get('/printers', async (req, res) => {
     res.status(500).json({
       version: 1,
       requestId: req.headers['x-request-id'] as string || Date.now().toString(),
-      error: {
-        code: 'PRINTER_DISCOVERY_ERROR',
-        message: error.message
-      }
+      error: { code: 'PRINTER_DISCOVERY_ERROR', message: error.message }
     });
   }
 });
@@ -39,7 +55,6 @@ app.get('/printers', async (req, res) => {
 app.post('/print', async (req, res) => {
   try {
     const { printer, type, data } = req.body;
-    
     if (!printer) {
       return res.status(400).json({
         version: 1,
@@ -57,7 +72,6 @@ app.post('/print', async (req, res) => {
         });
       }
 
-      // If it's a string instead of base64, we might handle it differently, but base64 is standard for binaries.
       const buffer = Buffer.from(data, 'base64');
       const job = jobManager.enqueue(printer, buffer);
       
@@ -82,18 +96,13 @@ app.post('/print', async (req, res) => {
     res.status(500).json({
       version: 1,
       requestId: req.headers['x-request-id'] as string || Date.now().toString(),
-      error: {
-        code: 'PRINT_FAILED',
-        message: error.message
-      }
+      error: { code: 'PRINT_FAILED', message: error.message }
     });
   }
 });
 
 app.get('/jobs/:id', (req, res) => {
-  const jobId = req.params.id;
-  const job = jobManager.getJob(jobId);
-  
+  const job = jobManager.getJob(req.params.id);
   if (!job) {
     return res.status(404).json({
       version: 1,
@@ -101,7 +110,6 @@ app.get('/jobs/:id', (req, res) => {
       error: { code: 'JOB_NOT_FOUND', message: 'Job not found' }
     });
   }
-  
   return res.json({
     version: 1,
     requestId: req.headers['x-request-id'] as string || Date.now().toString(),
@@ -109,11 +117,28 @@ app.get('/jobs/:id', (req, res) => {
   });
 });
 
-// Export app for testing, or listen if called directly
+const server = createServer(app);
+const wss = new WebSocketServer({ server });
+
+wss.on('connection', (ws) => {
+  ws.send(JSON.stringify({ type: 'connected', message: 'Bridge WebSocket Connected' }));
+});
+
+['job.queued', 'job.processing', 'job.completed', 'job.failed', 'job.retrying'].forEach(event => {
+  jobManager.on(event, (job) => {
+    const payload = JSON.stringify({ type: event, data: job });
+    wss.clients.forEach(client => {
+      if (client.readyState === 1) { // OPEN
+        client.send(payload);
+      }
+    });
+  });
+});
+
 if (require.main === module || process.argv.includes('start')) {
-  app.listen(PORT, '127.0.0.1', () => {
+  server.listen(PORT, '127.0.0.1', () => {
     console.log(`Bridge server listening on http://127.0.0.1:${PORT}`);
   });
 }
 
-export default app;
+export default server;

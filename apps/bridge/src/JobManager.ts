@@ -1,5 +1,6 @@
 import { PrintJob } from '@asitha/types';
 import { printRawData } from './printJob';
+import { EventEmitter } from 'events';
 
 export interface PrintTask {
   printerName: string;
@@ -8,7 +9,7 @@ export interface PrintTask {
   retries: number;
 }
 
-export class JobManager {
+export class JobManager extends EventEmitter {
   private queue: PrintTask[] = [];
   private jobs: Map<string, PrintJob> = new Map();
   private processing: boolean = false;
@@ -52,6 +53,7 @@ export class JobManager {
     if (error) {
       job.error = error;
     }
+    this.emit(`job.${status}`, job);
   }
 
   private async processQueue() {
