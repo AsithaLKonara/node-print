@@ -8,15 +8,17 @@ import { htmlToEscPos } from '@asitha/html';
 import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
 
-const app = express();
-const PORT = process.env.PORT ? parseInt(process.env.PORT) : 18181;
-const ACCESS_TOKEN = process.env.ACCESS_TOKEN || ''; 
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '*'; 
+import { config } from './config';
 
-const routes = new Map<string, string>();
+const app = express();
+const PORT = config.port;
+const ACCESS_TOKEN = config.security.accessToken; 
+const ALLOWED_ORIGIN = config.security.allowedOrigins; 
+
+const routes = new Map<string, string>(Object.entries(config.routes));
 
 app.use(cors({
-  origin: ALLOWED_ORIGIN === '*' ? '*' : ALLOWED_ORIGIN.split(',')
+  origin: ALLOWED_ORIGIN.includes('*') ? '*' : ALLOWED_ORIGIN
 }));
 app.use(express.json());
 

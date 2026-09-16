@@ -1,6 +1,7 @@
 import { PrintJob } from '@asitha/types';
 import { printRawData } from './printJob';
 import { EventEmitter } from 'events';
+import { config } from './config';
 
 export interface PrintTask {
   printerName: string;
@@ -15,7 +16,7 @@ export class JobManager extends EventEmitter {
   private processing: boolean = false;
   
   public config = {
-    retriesLimit: 3
+    retriesLimit: config.queue.retries
   };
 
   createJob(): PrintJob {

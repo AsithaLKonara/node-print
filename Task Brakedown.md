@@ -118,13 +118,13 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Send generated image buffer to printer
 
 ## Phase 8: CLI + Configuration Management
-- [ ] **Configuration File (`node-print.config.ts`)**
-  - [ ] Support loading port, security settings, origins, routes, and queue config
-- [ ] **CLI Commands**
-  - [ ] `node-print start`: Start background service
-  - [ ] `node-print doctor`: Validation check (Bridge, Node, Printer subsystem)
-  - [ ] `node-print status`: Status of active bridge
-  - [ ] `node-print routes`: List configured routing rules
+- [x] **Configuration File (`node-print.config.ts`)**
+  - [x] Support loading port, security settings, origins, routes, and queue config
+- [x] **CLI Commands**
+  - [x] `node-print start`: Start background service
+  - [x] `node-print doctor`: Validation check (Bridge, Node, Printer subsystem)
+  - [x] `node-print status`: Status of active bridge
+  - [x] `node-print routes`: List configured routing rules
 
 ## Phase 9: Cash Drawer Support (Bonus)
 - [ ] **API Endpoint**
