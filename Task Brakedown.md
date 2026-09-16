@@ -132,13 +132,13 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Send ESC/POS kick-drawer command to configured printer
 
 ## Phase 10: OS Installers
-- [ ] **Windows**
-  - [ ] Package bridge as `node-print.exe`
-  - [ ] Windows background service installer (Win 10/11)
-- [ ] **macOS**
-  - [ ] Launchd background daemon configuration
-- [ ] **Linux**
-  - [ ] Systemd background service configuration
+- [x] **Windows**
+  - [x] Package bridge as `node-print.exe`
+  - [x] Windows background service installer (Win 10/11)
+- [x] **macOS**
+  - [x] Launchd background daemon configuration
+- [x] **Linux**
+  - [x] Systemd background service configuration
 
 ## Phase 11: Testing & QA Strategy
 - [ ] **Unit Tests (`tests/unit`)**
