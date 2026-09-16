@@ -47,15 +47,16 @@ app.post('/print', async (req, res) => {
       });
     }
 
-    if (type === 'raw') {
+    if (type === 'raw' || type === 'escpos') {
       if (!data) {
         return res.status(400).json({
           version: 1,
           requestId: req.headers['x-request-id'] || Date.now().toString(),
-          error: { code: 'INVALID_REQUEST', message: 'data is required for raw printing (base64 string)' }
+          error: { code: 'INVALID_REQUEST', message: `data is required for ${type} printing (base64 string)` }
         });
       }
 
+      // If it's a string instead of base64, we might handle it differently, but base64 is standard for binaries.
       const buffer = Buffer.from(data, 'base64');
       await printRawData(printer, buffer);
       

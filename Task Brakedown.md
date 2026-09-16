@@ -67,17 +67,17 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Verify test print on a physical thermal printer
 
 ## Phase 3: ESC/POS Builder
-- [ ] **ESC/POS Engine (`packages/escpos`)**
-  - [ ] Text styling (align center/left/right, bold, size)
-  - [ ] Lines & columns layouts
-  - [ ] Raster image printing support
-  - [ ] QR code generation
-  - [ ] Barcode generation
-  - [ ] Cut command (`.cut()`)
-- [ ] **Bridge Integration**
-  - [ ] Update bridge to parse and process `type: "escpos"` payloads
-- [ ] **Validation Test**
-  - [ ] Test ESC/POS payload formats on both 58mm and 80mm hardware
+- [x] **ESC/POS Engine (`packages/escpos`)**
+  - [x] Text styling (align center/left/right, bold, size)
+  - [x] Lines & columns layouts
+  - [x] Raster image printing support
+  - [x] QR code generation
+  - [x] Barcode generation
+  - [x] Cut command (`.cut()`)
+- [x] **Bridge Integration**
+  - [x] Update bridge to parse and process `type: "escpos"` payloads
+- [x] **Validation Test**
+  - [x] Test ESC/POS payload formats on both 58mm and 80mm hardware
 
 ## Phase 4: Print Queue & Job Management
 - [ ] **Queue Engine (`apps/bridge`)**
