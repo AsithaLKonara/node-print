@@ -34,15 +34,15 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] `.github/workflows/`: CI pipelines
 
 ## Phase 0: API Design (No Implementation)
-- [ ] **Define Type Models (`packages/types`)**
-  - [ ] `Printer` model (id, name, status, type, connection, isDefault)
-  - [ ] `Job` model (id, status - queued/processing/completed/failed/retrying)
-  - [ ] `PrintRequest` payload schemas
-- [ ] **Define Network Protocol (`packages/protocol`)**
-  - [ ] Node Print Protocol (NPP) v1 JSON schema
-  - [ ] Request/Response structures and Error models
-- [ ] **API Documentation**
-  - [ ] Create `docs/api-v1.md` covering the initial client-facing API design
+- [x] **Define Type Models (`packages/types`)**
+  - [x] `Printer` model (id, name, status, type, connection, isDefault)
+  - [x] `Job` model (id, status - queued/processing/completed/failed/retrying)
+  - [x] `PrintRequest` payload schemas
+- [x] **Define Network Protocol (`packages/protocol`)**
+  - [x] Node Print Protocol (NPP) v1 JSON schema
+  - [x] Request/Response structures and Error models
+- [x] **API Documentation**
+  - [x] Create `docs/api-v1.md` covering the initial client-facing API design
 
 ## Phase 1: Printer Discovery
 - [ ] **Bridge Server Initialization (`apps/bridge`)**
