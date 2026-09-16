@@ -4,11 +4,14 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 
-const execAsync = promisify(exec);
+export const osUtils = {
+  execCommand: promisify(exec)
+};
 
-export async function printRawData(printerName: string, dataBuffer: Buffer): Promise<void> {
-  const platform = os.platform();
-  const tempFile = path.join(os.tmpdir(), `node-print-${Date.now()}.bin`);
+export const printerUtils = {
+  async printRawData(printerName: string, dataBuffer: Buffer): Promise<void> {
+    const platform = os.platform();
+    const tempFile = path.join(os.tmpdir(), `node-print-${Date.now()}.bin`);
   
   try {
     fs.writeFileSync(tempFile, dataBuffer);
@@ -16,11 +19,11 @@ export async function printRawData(printerName: string, dataBuffer: Buffer): Pro
     if (platform === 'win32') {
       // Note: On Windows, raw printing via CMD typically requires the printer to be shared.
       const cmd = `print /d:"\\\\localhost\\${printerName}" "${tempFile}"`;
-      await execAsync(cmd);
+      await osUtils.execCommand(cmd);
     } else {
       // Unix/macOS raw printing
       const cmd = `lp -d "${printerName}" -o raw "${tempFile}"`;
-      await execAsync(cmd);
+      await osUtils.execCommand(cmd);
     }
   } catch (error) {
     console.error('Error printing raw data:', error);
@@ -35,3 +38,4 @@ export async function printRawData(printerName: string, dataBuffer: Buffer): Pro
     }
   }
 }
+};

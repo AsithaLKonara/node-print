@@ -141,16 +141,16 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Systemd background service configuration
 
 ## Phase 11: Testing & QA Strategy
-- [ ] **Unit Tests (`tests/unit`)**
-  - [ ] Test ESC/POS commands generation
-  - [ ] Test routing logic and config validation
-  - [ ] Test queue states
-- [ ] **Integration Tests (`tests/integration`)**
-  - [ ] Test SDK to Bridge HTTP/WebSocket communication
-  - [ ] Test Bridge to Printer OS abstraction
-- [ ] **End-to-End Tests (`tests/e2e`)**
-  - [ ] Run Next.js POS scenario
-  - [ ] Validate specific use cases: duplicate requests, printer offline, printer reconnect, queue retries, 58/80mm formats, QR/barcode scanning, cash drawer.
+- [x] **Unit Tests (`tests/unit`)**
+  - [x] Test ESC/POS commands generation
+  - [x] Test routing logic and config validation
+  - [x] Test queue states
+- [x] **Integration Tests (`tests/integration`)**
+  - [x] Test SDK to Bridge HTTP/WebSocket communication
+  - [x] Test Bridge to Printer OS abstraction
+- [x] **End-to-End Tests (`tests/e2e`)**
+  - [x] Run Next.js POS scenario
+  - [x] Validate specific use cases: duplicate requests, printer offline, printer reconnect, queue retries, 58/80mm formats, QR/barcode scanning, cash drawer.
 
 ## Phase 12: Public Release
 - [ ] **Documentation (`docs/` & `README.md`)**

@@ -1,5 +1,5 @@
 import { PrintJob } from '@asitha/types';
-import { printRawData } from './printJob';
+import { printerUtils } from './printJob';
 import { EventEmitter } from 'events';
 import { config } from './config';
 
@@ -68,7 +68,7 @@ export class JobManager extends EventEmitter {
       this.updateJobStatus(task.job, 'processing');
 
       try {
-        await printRawData(task.printerName, task.dataBuffer);
+        await printerUtils.printRawData(task.printerName, task.dataBuffer);
         this.updateJobStatus(task.job, 'completed');
       } catch (err: any) {
         if (task.retries < this.config.retriesLimit) {

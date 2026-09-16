@@ -9,6 +9,9 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@asitha/*": ["./packages/*/src", "./packages/*/src/index", "./apps/*/src", "./apps/*/src/index"]
+    }
   }
 }
