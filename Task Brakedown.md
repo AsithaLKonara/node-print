@@ -110,12 +110,12 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Trigger silent printing from the browser without Chrome dialog
 
 ## Phase 7: HTML Printing
-- [ ] **HTML Engine (`packages/html`)**
-  - [ ] Headless browser rendering implementation (convert HTML -> Image)
-  - [ ] Handle 80mm scaling/CSS constraints
-- [ ] **Bridge Integration**
-  - [ ] Add `type: "html"` to bridge endpoints
-  - [ ] Send generated image buffer to printer
+- [x] **HTML Engine (`packages/html`)**
+  - [x] Headless browser rendering implementation (convert HTML -> Image)
+  - [x] Handle 80mm scaling/CSS constraints
+- [x] **Bridge Integration**
+  - [x] Add `type: "html"` to bridge endpoints
+  - [x] Send generated image buffer to printer
 
 ## Phase 8: CLI + Configuration Management
 - [ ] **Configuration File (`node-print.config.ts`)**

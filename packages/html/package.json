@@ -7,7 +7,14 @@
     "build": "tsc",
     "dev": "tsc --watch"
   },
+  "dependencies": {
+    "puppeteer": "^22.0.0",
+    "pngjs": "^7.0.0",
+    "@asitha/escpos": "workspace:*"
+  },
   "devDependencies": {
-    "typescript": "^5.4.0"
+    "typescript": "^5.4.0",
+    "@types/node": "^20",
+    "@types/pngjs": "^6.0.4"
   }
 }

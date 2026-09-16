@@ -4,6 +4,7 @@ import { getPrinters } from './printers';
 import { printRawData } from './printJob';
 import { jobManager } from './JobManager';
 import { GetPrintersResponse, PrintActionResponse } from '@asitha/protocol';
+import { htmlToEscPos } from '@asitha/html';
 import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
 
@@ -105,6 +106,30 @@ app.post('/print', async (req, res) => {
       }
 
       const buffer = Buffer.from(data, 'base64');
+      const job = jobManager.enqueue(targetPrinter, buffer);
+      
+      const response: PrintActionResponse = {
+        version: 1,
+        requestId: req.headers['x-request-id'] as string || Date.now().toString(),
+        data: {
+          jobId: job.id,
+          status: job.status
+        }
+      };
+      return res.json(response);
+    }
+
+    if (type === 'html') {
+      if (!data) {
+        return res.status(400).json({
+          version: 1,
+          requestId: req.headers['x-request-id'] || Date.now().toString(),
+          error: { code: 'INVALID_REQUEST', message: 'data is required for html printing (HTML string)' }
+        });
+      }
+
+      // data is an HTML string
+      const buffer = await htmlToEscPos(data);
       const job = jobManager.enqueue(targetPrinter, buffer);
       
       const response: PrintActionResponse = {
