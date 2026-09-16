@@ -12,6 +12,8 @@ const PORT = process.env.PORT ? parseInt(process.env.PORT) : 18181;
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN || ''; 
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || '*'; 
 
+const routes = new Map<string, string>();
+
 app.use(cors({
   origin: ALLOWED_ORIGIN === '*' ? '*' : ALLOWED_ORIGIN.split(',')
 }));
@@ -52,14 +54,44 @@ app.get('/printers', async (req, res) => {
   }
 });
 
+app.get('/routes', (req, res) => {
+  res.json({
+    version: 1,
+    requestId: req.headers['x-request-id'] as string || Date.now().toString(),
+    data: { routes: Object.fromEntries(routes) }
+  });
+});
+
+app.post('/routes', (req, res) => {
+  const { route, printer } = req.body;
+  if (!route || !printer) {
+    return res.status(400).json({ error: { code: 'INVALID_REQUEST', message: 'route and printer are required' } });
+  }
+  routes.set(route, printer);
+  res.json({ data: { success: true } });
+});
+
 app.post('/print', async (req, res) => {
   try {
-    const { printer, type, data } = req.body;
-    if (!printer) {
+    const { printer, route, type, data } = req.body;
+    
+    let targetPrinter = printer;
+    if (route) {
+      targetPrinter = routes.get(route);
+      if (!targetPrinter) {
+        return res.status(404).json({
+          version: 1,
+          requestId: req.headers['x-request-id'] || Date.now().toString(),
+          error: { code: 'ROUTE_NOT_FOUND', message: `Route '${route}' is not mapped to any printer.` }
+        });
+      }
+    }
+
+    if (!targetPrinter) {
       return res.status(400).json({
         version: 1,
         requestId: req.headers['x-request-id'] || Date.now().toString(),
-        error: { code: 'INVALID_REQUEST', message: 'printer name is required' }
+        error: { code: 'INVALID_REQUEST', message: 'printer name or route is required' }
       });
     }
 
@@ -73,7 +105,7 @@ app.post('/print', async (req, res) => {
       }
 
       const buffer = Buffer.from(data, 'base64');
-      const job = jobManager.enqueue(printer, buffer);
+      const job = jobManager.enqueue(targetPrinter, buffer);
       
       const response: PrintActionResponse = {
         version: 1,

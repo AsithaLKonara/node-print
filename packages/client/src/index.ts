@@ -97,6 +97,19 @@ export class NodePrintClient {
     }
   };
 
+  public routes = {
+    set: async (route: string, printer: string): Promise<void> => {
+      await this.request<any>('/routes', {
+        method: 'POST',
+        body: JSON.stringify({ route, printer })
+      });
+    },
+    list: async (): Promise<Record<string, string>> => {
+      const res = await this.request<any>('/routes');
+      return res.data?.routes || {};
+    }
+  };
+
   public async print(req: PrintRequest): Promise<string> {
     const res = await this.request<PrintActionResponse>('/print', {
       method: 'POST',

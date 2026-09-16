@@ -100,14 +100,14 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Implement WebSocket client in SDK for real-time events (`job.completed`, `job.failed`, `printer.offline`, `printer.online`)
 
 ## Phase 6: Next.js POS Demo
-- [ ] **App Development (`apps/demo`)**
-  - [ ] Create simple POS UI (Products, Cart, Checkout, KOT generation)
-  - [ ] Integrate `@asitha/node-print/client`
-- [ ] **Routing Implementation**
-  - [ ] Implement printer routing map logic in bridge (e.g., `receipt` -> Printer A, `kitchen` -> Printer B)
-  - [ ] SDK API `routes.set()` support
-- [ ] **End-to-End Validation**
-  - [ ] Trigger silent printing from the browser without Chrome dialog
+- [x] **App Development (`apps/demo`)**
+  - [x] Create simple POS UI (Products, Cart, Checkout, KOT generation)
+  - [x] Integrate `@asitha/node-print/client`
+- [x] **Routing Implementation**
+  - [x] Implement printer routing map logic in bridge (e.g., `receipt` -> Printer A, `kitchen` -> Printer B)
+  - [x] SDK API `routes.set()` support
+- [x] **End-to-End Validation**
+  - [x] Trigger silent printing from the browser without Chrome dialog
 
 ## Phase 7: HTML Printing
 - [ ] **HTML Engine (`packages/html`)**
