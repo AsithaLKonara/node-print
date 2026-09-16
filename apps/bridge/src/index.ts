@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { getPrinters } from './printers';
 import { printRawData } from './printJob';
+import { jobManager } from './JobManager';
 import { GetPrintersResponse, PrintActionResponse } from '@asitha/protocol';
 
 const app = express();
@@ -58,14 +59,14 @@ app.post('/print', async (req, res) => {
 
       // If it's a string instead of base64, we might handle it differently, but base64 is standard for binaries.
       const buffer = Buffer.from(data, 'base64');
-      await printRawData(printer, buffer);
+      const job = jobManager.enqueue(printer, buffer);
       
       const response: PrintActionResponse = {
         version: 1,
         requestId: req.headers['x-request-id'] as string || Date.now().toString(),
         data: {
-          jobId: `job_${Date.now()}`,
-          status: 'completed'
+          jobId: job.id,
+          status: job.status
         }
       };
       return res.json(response);
@@ -87,6 +88,25 @@ app.post('/print', async (req, res) => {
       }
     });
   }
+});
+
+app.get('/jobs/:id', (req, res) => {
+  const jobId = req.params.id;
+  const job = jobManager.getJob(jobId);
+  
+  if (!job) {
+    return res.status(404).json({
+      version: 1,
+      requestId: req.headers['x-request-id'] as string || Date.now().toString(),
+      error: { code: 'JOB_NOT_FOUND', message: 'Job not found' }
+    });
+  }
+  
+  return res.json({
+    version: 1,
+    requestId: req.headers['x-request-id'] as string || Date.now().toString(),
+    data: { job }
+  });
 });
 
 // Export app for testing, or listen if called directly

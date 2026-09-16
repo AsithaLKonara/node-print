@@ -80,12 +80,12 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Test ESC/POS payload formats on both 58mm and 80mm hardware
 
 ## Phase 4: Print Queue & Job Management
-- [ ] **Queue Engine (`apps/bridge`)**
-  - [ ] Implement robust `JobManager` queue system
-  - [ ] State transitions: queued -> processing -> completed / failed -> retrying
-  - [ ] Configuration support: Retries limit (`queue.retries`)
-- [ ] **Job Status API**
-  - [ ] Implement endpoints to query job statuses (`GET /jobs/:id`)
+- [x] **Queue Engine (`apps/bridge`)**
+  - [x] Implement robust `JobManager` queue system
+  - [x] State transitions: queued -> processing -> completed / failed -> retrying
+  - [x] Configuration support: Retries limit (`queue.retries`)
+- [x] **Job Status API**
+  - [x] Implement endpoints to query job statuses (`GET /jobs/:id`)
 
 ## Phase 5: Browser SDK & Security
 - [ ] **Security Mechanisms (`apps/bridge`)**
