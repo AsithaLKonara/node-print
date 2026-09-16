@@ -1,0 +1,12 @@
+{
+  "name": "@asitha/playground",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.2"
+  }
+}

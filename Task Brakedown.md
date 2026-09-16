@@ -15,23 +15,23 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Setup base `tsconfig.json`
   - [x] Configure ESLint & Prettier
 - [ ] **Scaffold Applications (`apps/`)**
-  - [ ] `apps/bridge`: The local Node.js print bridge server
+  - [x] `apps/bridge`: The local Node.js print bridge server
   - [ ] `apps/demo`: Next.js POS demo application
-  - [ ] `apps/playground`: Testing playground
-- [ ] **Scaffold Packages (`packages/`)**
-  - [ ] `packages/types`: Shared TypeScript interfaces
-  - [ ] `packages/protocol`: Message schemas and API protocol
-  - [ ] `packages/client`: Browser/Node SDK
-  - [ ] `packages/server`: Server-side utilities
-  - [ ] `packages/escpos`: ESC/POS command builder
-  - [ ] `packages/html`: HTML rendering engine
-- [ ] **Scaffold Additional Directories**
-  - [ ] `native/printer`: OS-level printer integration
-  - [ ] `examples/`: (nextjs, express, nestjs, react, vanilla, spring-boot)
-  - [ ] `docs/`: Documentation folder
-  - [ ] `tests/`: (unit, integration, e2e)
-  - [ ] `scripts/`: Helper scripts
-  - [ ] `.github/workflows/`: CI pipelines
+  - [x] `apps/playground`: Testing playground
+- [x] **Scaffold Packages (`packages/`)**
+  - [x] `packages/types`: Shared TypeScript interfaces
+  - [x] `packages/protocol`: Message schemas and API protocol
+  - [x] `packages/client`: Browser/Node SDK
+  - [x] `packages/server`: Server-side utilities
+  - [x] `packages/escpos`: ESC/POS command builder
+  - [x] `packages/html`: HTML rendering engine
+- [x] **Scaffold Additional Directories**
+  - [x] `native/printer`: OS-level printer integration
+  - [x] `examples/`: (nextjs, express, nestjs, react, vanilla, spring-boot)
+  - [x] `docs/`: Documentation folder
+  - [x] `tests/`: (unit, integration, e2e)
+  - [x] `scripts/`: Helper scripts
+  - [x] `.github/workflows/`: CI pipelines
 
 ## Phase 0: API Design (No Implementation)
 - [ ] **Define Type Models (`packages/types`)**
