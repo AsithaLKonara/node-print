@@ -44,16 +44,16 @@ importers:
 
   apps/bridge:
     dependencies:
-      '@asitha/escpos':
+      '@asithakonara/escpos':
         specifier: workspace:*
         version: link:../../packages/escpos
-      '@asitha/html':
+      '@asithakonara/html':
         specifier: workspace:*
         version: link:../../packages/html
-      '@asitha/protocol':
+      '@asithakonara/protocol':
         specifier: workspace:*
         version: link:../../packages/protocol
-      '@asitha/types':
+      '@asithakonara/types':
         specifier: workspace:*
         version: link:../../packages/types
       cors:
@@ -84,13 +84,13 @@ importers:
 
   apps/demo:
     dependencies:
-      '@asitha/client':
-        specifier: workspace:*
-        version: link:../../packages/client
-      '@asitha/escpos':
+      '@asithakonara/escpos':
         specifier: workspace:*
         version: link:../../packages/escpos
-      '@asitha/types':
+      '@asithakonara/node-print-client':
+        specifier: workspace:*
+        version: link:../../packages/client
+      '@asithakonara/types':
         specifier: workspace:*
         version: link:../../packages/types
       next:
@@ -118,7 +118,7 @@ importers:
 
   apps/playground:
     dependencies:
-      '@asitha/escpos':
+      '@asithakonara/escpos':
         specifier: workspace:*
         version: link:../../packages/escpos
     devDependencies:
@@ -131,10 +131,10 @@ importers:
 
   packages/client:
     dependencies:
-      '@asitha/protocol':
+      '@asithakonara/protocol':
         specifier: workspace:*
         version: link:../protocol
-      '@asitha/types':
+      '@asithakonara/types':
         specifier: workspace:*
         version: link:../types
     devDependencies:
@@ -150,7 +150,7 @@ importers:
 
   packages/html:
     dependencies:
-      '@asitha/escpos':
+      '@asithakonara/escpos':
         specifier: workspace:*
         version: link:../escpos
       pngjs:
@@ -171,6 +171,10 @@ importers:
         version: 5.9.3
 
   packages/protocol:
+    dependencies:
+      '@asithakonara/types':
+        specifier: workspace:*
+        version: link:../types
     devDependencies:
       typescript:
         specifier: ^5.4.0

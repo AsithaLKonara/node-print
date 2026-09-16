@@ -1,5 +1,5 @@
 {
-  "name": "@asitha/demo",
+  "name": "@asithakonara/demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,9 +12,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "next": "14.2.0",
-    "@asitha/node-print-client": "workspace:*",
-    "@asitha/types": "workspace:*",
-    "@asitha/escpos": "workspace:*"
+    "@asithakonara/node-print-client": "workspace:*",
+    "@asithakonara/types": "workspace:*",
+    "@asithakonara/escpos": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

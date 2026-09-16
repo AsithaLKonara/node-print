@@ -28,7 +28,7 @@ To start communicating with local printers, you need two things:
 Install the bridge globally on the target machine (the machine physically connected to the printers):
 
 ```bash
-npm install -g @asitha/node-print
+npm install -g @asithakonara/node-print
 ```
 
 Start the background bridge service:
@@ -42,7 +42,7 @@ node-print start
 Install the SDK in your web application (Next.js, React, Express, etc.):
 
 ```bash
-npm install @asitha/node-print-client
+npm install @asithakonara/node-print-client
 ```
 
 ---
@@ -52,7 +52,7 @@ npm install @asitha/node-print-client
 Once the bridge is running locally, use the client SDK to send print jobs silently from your web app.
 
 ```javascript
-import { NodePrintClient, EscPosBuilder } from '@asitha/node-print-client';
+import { NodePrintClient, EscPosBuilder } from '@asithakonara/node-print-client';
 
 // 1. Connect to the local bridge
 const client = new NodePrintClient({ url: 'http://127.0.0.1:18181', token: 'optional_security_token' });

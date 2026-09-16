@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import os from 'os';
-import { Printer } from '@asitha/types';
+import { Printer } from '@asithakonara/types';
 
 const execAsync = promisify(exec);
 

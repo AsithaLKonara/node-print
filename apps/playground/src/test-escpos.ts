@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { EscPosBuilder } from '@asitha/escpos';
+import { EscPosBuilder } from '@asithakonara/escpos';
 
 async function testEscPosPrint() {
   const printerName = process.argv[2];

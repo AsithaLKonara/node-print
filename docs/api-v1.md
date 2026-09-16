@@ -1,6 +1,6 @@
 # Node-Print Protocol (NPP) v1
 
-This document outlines the v1 JSON communication protocol used between the `@asitha/node-print/client` SDK and the `node-print` bridge server.
+This document outlines the v1 JSON communication protocol used between the `@asithakonara/node-print/client` SDK and the `node-print` bridge server.
 
 ## Overview
 All requests and responses wrap payloads inside a standard JSON structure.

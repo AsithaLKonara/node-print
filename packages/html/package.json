@@ -1,5 +1,5 @@
 {
-  "name": "@asitha/html",
+  "name": "@asithakonara/html",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   "dependencies": {
     "puppeteer": "^22.0.0",
     "pngjs": "^7.0.0",
-    "@asitha/escpos": "workspace:*"
+    "@asithakonara/escpos": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

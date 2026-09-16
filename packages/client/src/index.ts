@@ -1,5 +1,5 @@
-import { Printer, PrintJob, PrintRequest } from '@asitha/types';
-import { GetPrintersResponse, PrintActionResponse, GetJobResponse } from '@asitha/protocol';
+import { Printer, PrintJob, PrintRequest } from '@asithakonara/types';
+import { GetPrintersResponse, PrintActionResponse, GetJobResponse } from '@asithakonara/protocol';
 
 export interface NodePrintConfig {
   url?: string;

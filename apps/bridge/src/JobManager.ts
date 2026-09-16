@@ -1,4 +1,4 @@
-import { PrintJob } from '@asitha/types';
+import { PrintJob } from '@asithakonara/types';
 import { printerUtils } from './printJob';
 import { EventEmitter } from 'events';
 import { config } from './config';

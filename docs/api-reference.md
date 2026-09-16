@@ -1,6 +1,6 @@
 # API Reference
 
-This document covers the complete API surface of the `@asitha/node-print-client` SDK and the configuration options for the Node-Print Bridge service.
+This document covers the complete API surface of the `@asithakonara/node-print-client` SDK and the configuration options for the Node-Print Bridge service.
 
 ---
 

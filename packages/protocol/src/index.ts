@@ -1,4 +1,4 @@
-import { Printer, PrintJob, PrintRequest } from "@asitha/types";
+import { Printer, PrintJob, PrintRequest } from "@asithakonara/types";
 
 export interface ApiRequest<T> {
   version: 1;

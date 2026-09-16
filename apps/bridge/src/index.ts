@@ -3,9 +3,9 @@ import cors from 'cors';
 import { getPrinters } from './printers';
 import { printRawData } from './printJob';
 import { jobManager } from './JobManager';
-import { GetPrintersResponse, PrintActionResponse } from '@asitha/protocol';
-import { htmlToEscPos } from '@asitha/html';
-import { EscPosBuilder } from '@asitha/escpos';
+import { GetPrintersResponse, PrintActionResponse } from '@asithakonara/protocol';
+import { htmlToEscPos } from '@asithakonara/html';
+import { EscPosBuilder } from '@asithakonara/escpos';
 import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
 

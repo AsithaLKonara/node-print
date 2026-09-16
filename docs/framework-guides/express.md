@@ -1,20 +1,20 @@
 # Express / Backend Integration Guide
 
-If your backend is running on an intranet, POS appliance, or local area network alongside the printers, you can use the `@asitha/node-print-client` directly within your Express/Fastify/NestJS servers to orchestrate hardware logic.
+If your backend is running on an intranet, POS appliance, or local area network alongside the printers, you can use the `@asithakonara/node-print-client` directly within your Express/Fastify/NestJS servers to orchestrate hardware logic.
 
 ## 1. Setup
 
 Install the SDK in your backend project:
 
 ```bash
-npm i @asitha/node-print-client
+npm i @asithakonara/node-print-client
 ```
 
 ## 2. Server Controller Example
 
 ```typescript
 import express from 'express';
-import { NodePrintClient, EscPosBuilder } from '@asitha/node-print-client';
+import { NodePrintClient, EscPosBuilder } from '@asithakonara/node-print-client';
 
 const app = express();
 app.use(express.json());

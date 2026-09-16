@@ -1,12 +1,12 @@
 {
-  "name": "@asitha/playground",
+  "name": "@asithakonara/playground",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@asitha/escpos": "workspace:*"
+    "@asithakonara/escpos": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0",

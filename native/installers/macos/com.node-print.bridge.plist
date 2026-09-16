@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/node</string>
-        <string>/usr/local/lib/node_modules/@asitha/node-print/dist/cli.js</string>
+        <string>/usr/local/lib/node_modules/@asithakonara/node-print/dist/cli.js</string>
         <string>start</string>
     </array>
     <key>RunAtLoad</key>

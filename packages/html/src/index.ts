@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 import { PNG } from 'pngjs';
-import { EscPosBuilder } from '@asitha/escpos';
+import { EscPosBuilder } from '@asithakonara/escpos';
 
 export interface HtmlPrintOptions {
   widthMm?: 58 | 80;

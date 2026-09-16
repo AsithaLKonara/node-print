@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { NodePrintClient } from '@asitha/node-print-client';
-import { EscPosBuilder } from '@asitha/escpos';
+import { NodePrintClient } from '@asithakonara/node-print-client';
+import { EscPosBuilder } from '@asithakonara/escpos';
 
 const PRODUCTS = [
   { id: 1, name: 'Espresso', price: 3.50 },

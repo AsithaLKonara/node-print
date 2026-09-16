@@ -1,4 +1,4 @@
-For the name, I like **`asitha/node-print`** as the GitHub/repository identity and **`@asitha/node-print`** as the npm package. The CLI could simply be `node-print`.
+For the name, I like **`asitha/node-print`** as the GitHub/repository identity and **`@asithakonara/node-print`** as the npm package. The CLI could simply be `node-print`.
 
 The important architectural decision is that this should be a **JavaScript/TypeScript ecosystem dependency**, while the actual printer access is handled by a small local native/Node bridge.
 
@@ -13,7 +13,7 @@ GitHub:
 github.com/AsithaLKonara/node-print
 
 npm:
-@asitha/node-print
+@asithakonara/node-print
 
 CLI:
 node-print
@@ -67,25 +67,25 @@ You publish a normal npm-compatible package.
 Developers can install the same package with:
 
 ```bash
-npm install @asitha/node-print
+npm install @asithakonara/node-print
 ```
 
 or:
 
 ```bash
-yarn add @asitha/node-print
+yarn add @asithakonara/node-print
 ```
 
 or:
 
 ```bash
-pnpm add @asitha/node-print
+pnpm add @asithakonara/node-print
 ```
 
 or:
 
 ```bash
-bun add @asitha/node-print
+bun add @asithakonara/node-print
 ```
 
 They all consume the npm registry package.
@@ -273,7 +273,7 @@ But **V1 should keep the public API simple.**
 ### Main package
 
 ```bash
-npm install @asitha/node-print
+npm install @asithakonara/node-print
 ```
 
 Contains:
@@ -289,16 +289,16 @@ Protocol
 Potentially:
 
 ```ts
-import { NodePrint } from "@asitha/node-print";
+import { NodePrint } from "@asithakonara/node-print";
 ```
 
 Then optional packages later:
 
 ```text
-@asitha/node-print
-@asitha/node-print-client
-@asitha/node-print-server
-@asitha/node-print-escpos
+@asithakonara/node-print
+@asithakonara/node-print-client
+@asithakonara/node-print-server
+@asithakonara/node-print-escpos
 ```
 
 Don't force developers to install five packages initially.
@@ -312,7 +312,7 @@ Before writing printer code, freeze the developer-facing API.
 For example:
 
 ```ts
-import { NodePrint } from "@asitha/node-print";
+import { NodePrint } from "@asithakonara/node-print";
 
 const printer = new NodePrint();
 
@@ -622,7 +622,7 @@ Next.js POS:
 ```text
 Browser
    │
-   │ @asitha/node-print/client
+   │ @asithakonara/node-print/client
    ▼
 127.0.0.1:18181
    │
@@ -636,7 +636,7 @@ Printer
 Browser example:
 
 ```ts
-import { NodePrintClient } from "@asitha/node-print/client";
+import { NodePrintClient } from "@asithakonara/node-print/client";
 
 const printer = new NodePrintClient({
   endpoint: "http://127.0.0.1:18181",
@@ -750,7 +750,7 @@ This is where we need to separate **package installation** from **machine instal
 ### Developer project
 
 ```bash
-npm install @asitha/node-print
+npm install @asithakonara/node-print
 ```
 
 ### POS computer
@@ -907,7 +907,7 @@ export default {
 Your documentation should have a copy-paste example.
 
 ```bash
-npm install @asitha/node-print
+npm install @asithakonara/node-print
 ```
 
 Then:
@@ -915,7 +915,7 @@ Then:
 ```ts
 "use client";
 
-import { NodePrintClient } from "@asitha/node-print/client";
+import { NodePrintClient } from "@asithakonara/node-print/client";
 
 const printer = new NodePrintClient();
 
@@ -1177,7 +1177,7 @@ Your README should immediately show:
 
 Silent printing for JavaScript/TypeScript POS applications.
 
-npm install @asitha/node-print
+npm install @asithakonara/node-print
 ```
 
 Then:
@@ -1288,7 +1288,7 @@ This is your **first hardware milestone**.
 Build:
 
 ```text
-@asitha/node-print/escpos
+@asithakonara/node-print/escpos
 ```
 
 Support:
@@ -1440,7 +1440,7 @@ Linux
 Release:
 
 ```text
-@asitha/node-print@1.0.0
+@asithakonara/node-print@1.0.0
 ```
 
 with:
@@ -1555,7 +1555,7 @@ Next   React  Node      OS      Java   Python    .NET
 And developers install:
 
 ```bash
-npm install @asitha/node-print
+npm install @asithakonara/node-print
 ```
 
 while POS terminals install:
@@ -1585,7 +1585,7 @@ AsithaLKonara/node-print
 Package:
 
 ```text
-@asitha/node-print
+@asithakonara/node-print
 ```
 
 CLI:

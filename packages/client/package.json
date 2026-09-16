@@ -1,5 +1,5 @@
 {
-  "name": "@asitha/node-print-client",
+  "name": "@asithakonara/node-print-client",
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,8 +11,8 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@asitha/types": "workspace:*",
-    "@asitha/protocol": "workspace:*"
+    "@asithakonara/types": "workspace:*",
+    "@asithakonara/protocol": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.4.0"

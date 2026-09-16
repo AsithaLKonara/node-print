@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/bin/node /usr/lib/node_modules/@asitha/node-print/dist/cli.js start
+ExecStart=/usr/bin/node /usr/lib/node_modules/@asithakonara/node-print/dist/cli.js start
 Restart=on-failure
 RestartSec=5
 StandardOutput=syslog

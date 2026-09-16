@@ -7,7 +7,7 @@ Node-Print integrates flawlessly with Next.js, allowing your cloud-hosted React 
 Install the SDK in your Next.js project:
 
 ```bash
-npm i @asitha/node-print-client
+npm i @asithakonara/node-print-client
 ```
 
 ## 2. Global Client Initialization
@@ -16,7 +16,7 @@ Create a singleton client instance that can be reused across your application.
 
 ```typescript
 // lib/printer.ts
-import { NodePrintClient } from '@asitha/node-print-client';
+import { NodePrintClient } from '@asithakonara/node-print-client';
 
 export const printerClient = new NodePrintClient({
   url: 'http://127.0.0.1:18181', // Assumes bridge is running on the POS terminal
@@ -36,7 +36,7 @@ A Next.js server runs in the cloud; it cannot reach `127.0.0.1` on the user's la
 
 import { useState } from 'react';
 import { printerClient } from '@/lib/printer';
-import { EscPosBuilder } from '@asitha/node-print-client';
+import { EscPosBuilder } from '@asithakonara/node-print-client';
 
 export default function CheckoutPage() {
   const [printing, setPrinting] = useState(false);

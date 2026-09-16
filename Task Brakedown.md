@@ -102,7 +102,7 @@ This document provides a comprehensive task breakdown for the `node-print` proje
 ## Phase 6: Next.js POS Demo
 - [x] **App Development (`apps/demo`)**
   - [x] Create simple POS UI (Products, Cart, Checkout, KOT generation)
-  - [x] Integrate `@asitha/node-print/client`
+  - [x] Integrate `@asithakonara/node-print/client`
 - [x] **Routing Implementation**
   - [x] Implement printer routing map logic in bridge (e.g., `receipt` -> Printer A, `kitchen` -> Printer B)
   - [x] SDK API `routes.set()` support
@@ -161,5 +161,5 @@ This document provides a comprehensive task breakdown for the `node-print` proje
   - [x] Test on Node 20, 22, 24+
   - [x] Test on Windows, macOS, Linux
 - [x] **NPM Publish**
-  - [x] Publish `@asitha/node-print` main package
+  - [x] Publish `@asithakonara/node-print` main package
   - [x] Publish CLI `node-print`
