@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { getPrinters } from './printers';
-import { printRawData } from './printJob';
+
 import { jobManager } from './JobManager';
 import { GetPrintersResponse, PrintActionResponse } from '@asithakonara/protocol';
 import { htmlToEscPos } from '@asithakonara/html';

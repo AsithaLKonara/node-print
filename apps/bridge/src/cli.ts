@@ -11,7 +11,7 @@ const url = `http://127.0.0.1:${config.port}`;
 const headers = config.security.accessToken ? { Authorization: `Bearer ${config.security.accessToken}` } : {};
 
 async function fetchApi(path: string) {
-  const res = await fetch(`${url}${path}`, { headers });
+  const res = await fetch(`${url}${path}`, { headers: headers as HeadersInit });
   if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
   return res.json();
 }
