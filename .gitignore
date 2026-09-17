@@ -1,8 +1,6 @@
 node_modules/
 dist/
 build/
-.env
-.env.local
 .next/
 *.log
 coverage/
@@ -10,3 +8,4 @@ playwright-report/
 blob-report/
 test-results/
 .DS_Store
+config.bat
