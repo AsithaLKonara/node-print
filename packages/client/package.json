@@ -1,14 +1,14 @@
 {
   "name": "@asithakonara/node-print-client",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch"
+    "build": "node init && tsc",
+    "dev": "node init && tsc --watch"
   },
   "dependencies": {
     "@asithakonara/protocol": "workspace:*",
