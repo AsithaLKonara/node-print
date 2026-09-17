@@ -128,3 +128,5 @@ export class NodePrintClient {
     return res.data?.jobId as string;
   }
 }
+
+export * from './webusb';

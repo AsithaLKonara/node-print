@@ -11,10 +11,11 @@
     "dev": "tsc --watch"
   },
   "dependencies": {
-    "@asithakonara/types": "workspace:*",
-    "@asithakonara/protocol": "workspace:*"
+    "@asithakonara/protocol": "workspace:*",
+    "@asithakonara/types": "workspace:*"
   },
   "devDependencies": {
+    "@types/w3c-web-usb": "^1.0.14",
     "typescript": "^5.4.0"
   }
 }

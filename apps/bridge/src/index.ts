@@ -10,6 +10,7 @@ import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
 
 import { config } from './config';
+import { cloudRelay } from './cloudRelay';
 
 const app = express();
 const PORT = config.port;
@@ -242,8 +243,9 @@ wss.on('connection', (ws) => {
 });
 
 if (require.main === module || process.argv.includes('start')) {
-  server.listen(PORT, '127.0.0.1', () => {
-    console.log(`Bridge server listening on http://127.0.0.1:${PORT}`);
+  cloudRelay.start();
+  server.listen(PORT, config.host, () => {
+    console.log(`Bridge server listening on http://${config.host}:${PORT}`);
   });
 }
 

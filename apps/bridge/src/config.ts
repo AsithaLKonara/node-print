@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export interface NodePrintConfig {
+  host: string;
   port: number;
   security: {
     accessToken?: string;
@@ -11,9 +12,16 @@ export interface NodePrintConfig {
   queue: {
     retries: number;
   };
+  cloudPolling?: {
+    enabled: boolean;
+    endpoint: string;
+    token: string;
+    intervalMs: number;
+  };
 }
 
 const defaultConfig: NodePrintConfig = {
+  host: process.env.HOST || '127.0.0.1',
   port: process.env.PORT ? parseInt(process.env.PORT) : 18181,
   security: {
     accessToken: process.env.ACCESS_TOKEN || undefined,
@@ -40,6 +48,7 @@ export function loadConfig(): NodePrintConfig {
         const resolved = userConfig.default || userConfig;
         
         return {
+          host: resolved.host ?? defaultConfig.host,
           port: resolved.port ?? defaultConfig.port,
           security: {
             accessToken: resolved.security?.accessToken ?? defaultConfig.security.accessToken,
@@ -48,7 +57,8 @@ export function loadConfig(): NodePrintConfig {
           routes: { ...defaultConfig.routes, ...(resolved.routes || {}) },
           queue: {
             retries: resolved.queue?.retries ?? defaultConfig.queue.retries
-          }
+          },
+          cloudPolling: resolved.cloudPolling
         };
       } catch (e: any) {
         console.warn(`[Node-Print] Failed to load config at ${configPath}:`, e.message);

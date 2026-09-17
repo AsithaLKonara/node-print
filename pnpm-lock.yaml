@@ -138,6 +138,9 @@ importers:
         specifier: workspace:*
         version: link:../types
     devDependencies:
+      '@types/w3c-web-usb':
+        specifier: ^1.0.14
+        version: 1.0.14
       typescript:
         specifier: ^5.4.0
         version: 5.9.3
@@ -561,6 +564,9 @@ packages:
 
   '@types/strip-json-comments@0.0.30':
     resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
+
+  '@types/w3c-web-usb@1.0.14':
+    resolution: {integrity: sha512-Qu3Nn6JFuF4+sHKYl+IcX9vYiI40ogleXzFFSxoE1W94rG98o/kXs8uJ0QSfFzuwBCZWlGfUGpPkgwuuX4PchA==}
 
   '@types/ws@8.18.1':
     resolution: {integrity: sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg==}
@@ -2198,6 +2204,8 @@ snapshots:
   '@types/strip-bom@3.0.0': {}
 
   '@types/strip-json-comments@0.0.30': {}
+
+  '@types/w3c-web-usb@1.0.14': {}
 
   '@types/ws@8.18.1':
     dependencies:
