@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = { eslint: { ignoreDuringBuilds: true },
+const nextConfig = {
   transpilePackages: ['@asithakonara/node-print-client', '@asithakonara/escpos', '@asithakonara/types'],
 };
 

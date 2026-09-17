@@ -26,8 +26,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build all packages
-        run: pnpm run build
-
+        run: pnpm run build --filter="./packages/**" --filter="./apps/bridge"
       - name: Publish all public packages
         run: pnpm publish -r --access public --no-git-checks
         env:
